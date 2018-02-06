@@ -80,7 +80,7 @@ public class DBFunction {
       return time;
       }
 	public static URI getBaseURI(){
-		String url="http://localhost:8081/wm/";  
+		String url="http://localhost:8080/wm/";
 	    return UriBuilder.fromUri(url).build();
 	}
 	public int randomNumGeneration(int length) {
