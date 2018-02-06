@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.Session;
 
-public class systemInitialize {
+public class SystemInitialize {
     public static void start(){
     	//1.start floodlight
     
@@ -34,12 +34,22 @@ public class systemInitialize {
     		try {
 				
     			//Process p=new ProcessBuilder("/bin/sh","/home/xu/SDN_APP/SDN_Statistics/custom/systemStart.sh").start();
-    			initializeFromConfigurationFile();
+    			//initializeFromConfigurationFile();
+				initializeFromConfigurationFileForJARFile();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  	
     }
+	public static void initializeFromConfigurationFileForJARFile() throws IOException{
+		Properties mainProperties=new Properties(System.getProperties());
+		FileInputStream file;
+		String path= "configuration";
+		file =new FileInputStream(path);
+		mainProperties.load(file);
+		System.setProperties(mainProperties);
+		file.close();
+	}
     public static void initializeFromConfigurationFile() throws Exception{
 		URL resource=ClassLoader.getSystemResource("configuration");
 		File file=new File(resource.toURI());
