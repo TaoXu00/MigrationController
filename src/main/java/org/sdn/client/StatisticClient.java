@@ -57,14 +57,14 @@ public class StatisticClient {
           	hostinfoCollector.hostInfoToDatabase();
           	List<host> hosts=selectAllhosts();
          	deployServerOnHost(hosts);
-         	generateKeyPair(hosts);
+         	/*generateKeyPair(hosts);
          	generatelookupTable(hosts);
          	distributeKeyPairAndTable(hosts);
         	String policy=System.getProperty("policy");	
-          	System.out.println("read from the configuration file:"+policy);
-         	if(policy.equals("random")){
+          	System.out.println("read from the configuration file:"+policy);*/
+        	/*if(policy.equals("random")){
     /***************************test to collect the result of the bandwidth***********************************/
-          		 (new bandwidthThread(bandwidthQueue)).start();
+          /*		 (new bandwidthThread(bandwidthQueue)).start();
           		 Thread.sleep(5000);
           	     tester ts=new tester();
           	     (new bandwidthCollectorThread(ts.getAlltheHost(),3000)).start();
@@ -76,18 +76,12 @@ public class StatisticClient {
           	Thread.sleep(5000);
     	    (new checkingThread(MsgQueue,policy)).start();
     	    readMsg();	
-    	    }
-         /*	String mode=System.getProperty("mode");
-         	if(mode.equals("secure"))
-         	  runSecureMode();
-         	else if(mode.equals("load balancing")){
-         		runLoadbanlancingMode(); 
-         	}*/
+    	    }*/
          	
     	    }catch(Exception e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
-    		}  
+    		}
  
     }
    private void distributeKeyPairAndTable(List<host> hosts) throws InterruptedException {
