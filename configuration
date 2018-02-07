@@ -1,7 +1,7 @@
 port=8088
 image=xutao6688/iperfserver
 container=iperfserver
-hostInfoDir=~/hostsInfo.txt
+hostInfoDir=hostsInfo.txt
 lookupTableDir=loopUpTables
 logfileDir=log
 serverdeployRatio=0.5
