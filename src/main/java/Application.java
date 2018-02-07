@@ -11,7 +11,7 @@ public class Application {
 	    /* policyExecutor pex=new policyExecutor();
 	     pex.excuteRandomPolicySecure("Shamir");*/
          StatisticClient client= new StatisticClient();
-         client.run();
+         client.start();
          
         /*--------------task of thread one to write to the database------------*
        
