@@ -52,16 +52,16 @@ public class StatisticClient {
 	}
     public void run(){
     	    try{
-    		//clearnUP();
+    		/*clearnUP();
         	hostInformationCollector hostinfoCollector=new hostInformationCollector();
           	hostinfoCollector.hostInfoToDatabase();
           	List<host> hosts=selectAllhosts();
          	deployServerOnHost(hosts);
-         /*	generateKeyPair(hosts);
+        	generateKeyPair(hosts);
          	generatelookupTable(hosts);
          	distributeKeyPairAndTable(hosts);
         	String policy=System.getProperty("policy");	
-          	System.out.println("read from the configuration file:"+policy);
+          	System.out.println("read from the configuration file:"+policy);*/
         	/*if(policy.equals("random")){
     /***************************test to collect the result of the bandwidth***********************************/
           /*		 (new bandwidthThread(bandwidthQueue)).start();
