@@ -53,11 +53,11 @@ public class StatisticClient {
     public void run(){
     	    try{
     		clearnUP();
-        	hostInformationCollector hostinfoCollector=new hostInformationCollector();
+        /*	hostInformationCollector hostinfoCollector=new hostInformationCollector();
           	hostinfoCollector.hostInfoToDatabase();
           	List<host> hosts=selectAllhosts();
          	deployServerOnHost(hosts);
-         	/*generateKeyPair(hosts);
+         	generateKeyPair(hosts);
          	generatelookupTable(hosts);
          	distributeKeyPairAndTable(hosts);
         	String policy=System.getProperty("policy");	
