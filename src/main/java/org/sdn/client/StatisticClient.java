@@ -53,7 +53,7 @@ public class StatisticClient {
     public void start(){
     	    try{
     		clearnUP();
-        	/*hostInformationCollector hostinfoCollector=new hostInformationCollector();
+        	hostInformationCollector hostinfoCollector=new hostInformationCollector();
           	hostinfoCollector.hostInfoToDatabase();
           	List<host> hosts=selectAllhosts();
          	deployServerOnHost(hosts);
