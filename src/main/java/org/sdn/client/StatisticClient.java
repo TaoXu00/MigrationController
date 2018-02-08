@@ -62,9 +62,9 @@ public class StatisticClient {
          	distributeKeyPairAndTable(hosts);
         	String policy=System.getProperty("policy");	
           	System.out.println("read from the configuration file:"+policy);
-        	/*if(policy.equals("random")){
+        	if(policy.equals("random")){
     /***************************test to collect the result of the bandwidth***********************************/
-          /*		 (new bandwidthThread(bandwidthQueue)).start();
+          		 (new bandwidthThread(bandwidthQueue)).start();
           		 Thread.sleep(5000);
           	     tester ts=new tester();
           	     (new bandwidthCollectorThread(ts.getAlltheHost(),3000)).start();
@@ -76,7 +76,7 @@ public class StatisticClient {
           	Thread.sleep(5000);
     	    (new checkingThread(MsgQueue,policy)).start();
     	    readMsg();	
-    	    }*/
+    	    }
          	
     	    }catch(Exception e) {
     			// TODO Auto-generated catch block
@@ -239,8 +239,8 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
      String ratioS=System.getProperty("serverdeployRatio");
      double ratio=Double.parseDouble(ratioS);
      List<host> selectedhosts=selectHostRunserverRandomly(hosts,ratio);
-        for(host h:selectedhosts)
-    	 System.out.println("host "+h.getIP()+" will run the container");
+        /*for(host h:selectedhosts)
+    	 System.out.println("host "+h.getIP()+" will run the container");*/
      sendStartCommandToSelectedhosts(selectedhosts);
 
      initializeDepolymentStatus(selectedhosts,hosts);
@@ -261,7 +261,7 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
     	}
     }
     
-    public void  sendStartCommandToSelectedhosts(List<host> selectedhosts){
+    public void sendStartCommandToSelectedhosts(List<host> selectedhosts){
     	String image=System.getProperty("image");
     	String container=System.getProperty("container");
     	for(host h:selectedhosts){
