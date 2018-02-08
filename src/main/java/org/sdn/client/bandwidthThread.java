@@ -89,7 +89,8 @@ public class bandwidthThread extends Thread {
 	        		
 	        	 }
 	        	}
-	        	SwitchPortsPair.put(dpid,ports);       	
+	        	SwitchPortsPair.put(dpid,ports);
+
 	         }
 	        
 	        }catch(Exception e){
@@ -107,8 +108,10 @@ public class bandwidthThread extends Thread {
 		       stt.executeUpdate(sql); 
 		    	for(String dpid:SwitchPortPairMap.keySet()){
 		    		List<String> ports=SwitchPortPairMap.get(dpid);
+		    		System.out.println("******************:"+ports.size());
 		    		for(String port:ports){ 
 		    			Response res;
+                        System.out.println("dpid:"+dpid +" port"+port);
 		    	        res=target.path("statistics/bandwidth")
 		    	        		   .path(dpid)
 		    	        		   .path(port)
@@ -117,6 +120,8 @@ public class bandwidthThread extends Thread {
 		    	        		   .get();	       
 		    	        String s=res.readEntity(String.class);
 		    	        JSONArray jsonarray=new JSONArray(s);
+                        System.out.println("++++++++++++++dpid:"+dpid +" port"+port);
+
 		    	        if(!jsonarray.get(0).equals(null)){
 		    	        JSONObject jobj=(JSONObject) jsonarray.get(0);
 		    	        long bitsPerSecondsRx=jobj.getLong("bits-per-second-rx");
