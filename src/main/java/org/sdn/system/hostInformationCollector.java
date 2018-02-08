@@ -60,12 +60,18 @@ public class hostInformationCollector {
 			    }else if(type==1){
 			    	String[] parts=sCurrentLine.split(" ");
 			    	String host=parts[0];
+			    	String destination=null;
+                    if(System.getProperty("testEnvironment").equals("Geni")) {
+                        destination = host+"-eth1";
+                    }else if(System.getProperty("testEnvironment").equals("Mininet")){
+                        destination = host+"-eth0";
+                    }
 			    	String ip=parts[1];
 			    	 Statement stt=conn.createStatement();
 					  stt.execute("INSERT INTO mapping VALUES" +
 								   "('"+host+"','host','"+ip+"')");
 					  String sql="UPDATE connections SET destIP="+
-								   "'"+ip+"' WHERE destination='"+host+"-eth0'";
+								   "'"+ip+"' WHERE destination='"+destination+"'";
 					  stt.execute(sql);
 			    }else{
 			    /*	String[] parts=sCurrentLine.split(":");
