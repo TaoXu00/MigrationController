@@ -100,7 +100,8 @@ public class bandwidthThread extends Thread {
     
 	public void getBandwidthPerSwitchPerPort() throws JSONException{
 		 try{
-		       Map<String,LinkedList<String>> SwitchPortPairMap=getSwitchPortPair();
+		     Map<String,LinkedList<String>> SwitchPortPairMap=getSwitchPortPair();
+             System.out.println("getSwitchPortPair Size"+SwitchPortPairMap.size());
 		       Statement stt=  conn.createStatement();
 		       String sql="TRUNCATE StatisticsBandwidth";
 		       stt.executeUpdate(sql); 
