@@ -1,6 +1,27 @@
 package org.sdn.client;
 
-import com.mysql.jdbc.DatabaseMetaData;
+import java.net.URI;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.concurrent.BlockingQueue;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,17 +30,7 @@ import org.sdn.dataType.Message;
 import org.sdn.dataType.bandwidth;
 import org.sdn.dataType.msgType;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.*;
-import java.util.concurrent.BlockingQueue;
-
+import com.mysql.jdbc.DatabaseMetaData;
 public class bandwidthThread extends Thread {
 	private WebTarget target;
 	private DBFunction db=new DBFunction();
@@ -114,7 +125,9 @@ public class bandwidthThread extends Thread {
 		                String time=db.getCurrentTime();
 		                stt.execute("INSERT INTO StatisticsBandwidth VALUES"+
 		    				    "('"+dpid+"','"+port+"','"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
-						/*ResultSet rs=stt.executeQuery("SELECT * FROM StatisticsBandwidth WHERE switchDPID='"+dpid+ "' AND port='"+port+"'");
+						System.out.println("INSERT INTO StatisticsBandwidth VALUES"+
+								"('"+dpid+"','"+port+"','"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")");
+		                /*ResultSet rs=stt.executeQuery("SELECT * FROM StatisticsBandwidth WHERE switchDPID='"+dpid+ "' AND port='"+port+"'");
 						
 						if(!rs.next())
 							stt.execute("INSERT INTO StatisticsBandwidth VALUES"+
