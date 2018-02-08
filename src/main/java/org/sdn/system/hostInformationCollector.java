@@ -46,9 +46,11 @@ public class hostInformationCollector {
 				 String destPort=destParts[1];
 				 if(dest.charAt(0)=='h'){
 			      Statement stt=conn.createStatement();
-			      String switchPortMAC=parts[2];
+			      String[] switchPortandMAC=source.split("#");
+			      String switchPort=switchPortandMAC[0];
+			      String switchPortMAC=switchPortandMAC[1];
 				  stt.execute("INSERT INTO connections(source,dstType,destination,switchPortMAC) VALUES" +
-							   "('"+source+"','host','"+destination+"','"+switchPortMAC+"')");
+							   "('"+switchPort+"','host','"+destination+"','"+switchPortMAC+"')");
 					stt.close();
 					
 				 }else if(dest.charAt(0)=='s'){
