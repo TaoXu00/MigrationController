@@ -75,7 +75,7 @@ public class DBFunction {
       long unixTime=System.currentTimeMillis();
       Date date=new Date(unixTime);
       SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-      sdf.setTimeZone(TimeZone.getTimeZone("UTC-6"));
+      //sdf.setTimeZone(TimeZone.getTimeZone("UTC-6"));
       String time=sdf.format(date);
       return time;
       }
