@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import MySQLdb
 import numpy as np
 import os
-import mysql.connector
+#import mysql.connector
 
 def timeConvert(indate):
     dt=datetime.strptime(indate,"%Y-%m-%d %H:%M:%S")
@@ -60,9 +60,10 @@ MEDIUM_SIZE=18
 BIGGER_SIZE=25
 titleName=sys.argv[3]+"-"+sys.argv[4]+" "+sys.argv[5]+"s"
 #conn=MySQLdb.connect(user="root",passwd="123",db="SDN",unix_socket="/opt/lampp/var/mysql/mysql.sock") 
-conn = mysql.connector.connect(user='root', password='123',
-                              host='127.0.0.1',
-                              database='SDN')
+conn = MySQLdb.connect(user="root",
+                       password="123",
+                       host="localhost",
+                       database="SDN")
 for j in range(len(sys.argv)-4):
     sql='SELECT * FROM %s' % sys.argv[j+1]
     cursor=excuteSql(sql,conn)
