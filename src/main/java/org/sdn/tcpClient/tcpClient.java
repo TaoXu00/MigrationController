@@ -118,7 +118,7 @@ public class tcpClient {
 		// TODO Auto-generated method stub
     	 System.out.println("migrationSource Port:"+srctable+" "+dsttable+" "+migrationSrcHost.getIP()+" "+migrationDstHost.getIP()+" "+migrationTime);
     	 Runtime r=Runtime.getRuntime(); 
- 		 String[] cmd={"python", "/home/xu/thesis_file/plot/plot.py", srctable, dsttable, migrationSrcHost.getIP(), migrationDstHost.getIP(), String.valueOf(migrationTime)};
+ 		 String[] cmd={"python", "plot/plot.py", srctable, dsttable, migrationSrcHost.getIP(), migrationDstHost.getIP(), String.valueOf(migrationTime)};
  		 System.out.println("plot information");
  		 System.out.println(srctable+" "+dsttable+" "+migrationSrcHost.getIP()+" "+migrationDstHost.getIP()+" "+String.valueOf(migrationTime));
  		 Process P=r.exec(cmd);
