@@ -113,7 +113,7 @@ plt.ylabel("cumulation throughput(kb)")
 plt.plot(t_cumulation,cumulation,"-b")
 plt.setp(lines,linewidth=3.0)
 #plt.savefig("/home/xu/thesis_file/plot/"+titleName+"_cumulation.png",bbox_inches='tight')
-plt.savefig("titleName+"_cumulation.png",bbox_inches='tight')
+plt.savefig(titleName+"_cumulation.png",bbox_inches='tight')
 f.close()
 plt.show()
 
