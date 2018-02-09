@@ -243,6 +243,7 @@ public class bandwidthThread extends Thread {
 			  }else if(msg==null&&customrizationMode==1){
 			 //  System.out.println("still in bandwidth customrizationMode");
 			   runBandwidthAsCustomrizationMode(portlists,frequency);
+
 			  }else{
 				  msgType msgtype=msg.getMsgtype();
 				  switch(msgtype){

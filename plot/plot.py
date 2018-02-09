@@ -63,7 +63,7 @@ titleName=sys.argv[3]+"-"+sys.argv[4]+" "+sys.argv[5]+"s"
 conn = MySQLdb.connect(user="root",
                        password="123",
                        host="localhost",
-                       database="SDN")
+                       db="SDN")
 for j in range(len(sys.argv)-4):
     sql='SELECT * FROM %s' % sys.argv[j+1]
     cursor=excuteSql(sql,conn)
