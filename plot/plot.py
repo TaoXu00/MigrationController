@@ -61,7 +61,7 @@ BIGGER_SIZE=25
 titleName=sys.argv[3]+"-"+sys.argv[4]+" "+sys.argv[5]+"s"
 #conn=MySQLdb.connect(user="root",passwd="123",db="SDN",unix_socket="/opt/lampp/var/mysql/mysql.sock") 
 conn = MySQLdb.connect(user="root",
-                       password="123",
+                       passwd="123",
                        host="localhost",
                        db="SDN")
 for j in range(len(sys.argv)-4):
