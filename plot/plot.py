@@ -1,8 +1,10 @@
+import matplotlib
+matplotlib.use('Agg')
 import sys
 import time
 from datetime import datetime
 import calendar
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import MySQLdb
 import numpy as np
 import os
@@ -58,6 +60,7 @@ accum=0
 SMALL_SIZE=15
 MEDIUM_SIZE=18
 BIGGER_SIZE=25
+
 titleName=sys.argv[3]+"-"+sys.argv[4]+" "+sys.argv[5]+"s"
 #conn=MySQLdb.connect(user="root",passwd="123",db="SDN",unix_socket="/opt/lampp/var/mysql/mysql.sock") 
 conn = MySQLdb.connect(user="root",
