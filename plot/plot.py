@@ -62,7 +62,7 @@ SMALL_SIZE=15
 MEDIUM_SIZE=18
 BIGGER_SIZE=25
 
-currentDT=datetime.now().replace(" ","")
+currentDT=str(datetime.now()).replace(" ","")
 titleName=sys.argv[3]+"-"+sys.argv[4]+"_"+sys.argv[5]+"s"+"#"+currentDT
 #conn=MySQLdb.connect(user="root",passwd="123",db="SDN",unix_socket="/opt/lampp/var/mysql/mysql.sock") 
 conn = MySQLdb.connect(user="root",
