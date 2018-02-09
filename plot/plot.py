@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import MySQLdb
 import numpy as np
 import os
+import datetime
 #import mysql.connector
 
 def timeConvert(indate):
@@ -61,7 +62,8 @@ SMALL_SIZE=15
 MEDIUM_SIZE=18
 BIGGER_SIZE=25
 
-titleName=sys.argv[3]+"-"+sys.argv[4]+" "+sys.argv[5]+"s"
+currentDT=datetime,now().replace(" ","")
+titleName=sys.argv[3]+"-"+sys.argv[4]+"_"+sys.argv[5]+"s"+"#"+currentDT
 #conn=MySQLdb.connect(user="root",passwd="123",db="SDN",unix_socket="/opt/lampp/var/mysql/mysql.sock") 
 conn = MySQLdb.connect(user="root",
                        passwd="123",
@@ -90,7 +92,8 @@ for j in range(len(sys.argv)-4):
         else:
            dataXY(record,basetime,t1,s1)
 #f=open("/home/xu/thesis_file/plot/cumulation.txt","w")
-f=open("cumulation.txt","w")
+
+f=open(plot/titleName+"_cumulation.txt","w")
 for i in range(len(t_cumulation)):
     f.write('%d %d\n' %(t_cumulation[i],cumulation[i]))
 plt.rc('axes',labelsize=BIGGER_SIZE)
@@ -100,7 +103,7 @@ plt.rc('ytick',labelsize=MEDIUM_SIZE)
 #plt.rc('figure',titlesize=BIGGER_SIZE)
 lines=plt.plot(t,s,'-r',t1,s1,'--b')
 plt.setp(lines,linewidth=2.0)
-plt.axis([min(t),200,min(s),max(s)])
+plt.axis([min(t),200,min(s,s1),max(s,s1)])
 #plt.xticks(np.arange(min(t),250,50.0))
 plt.xticks([10,50,100,150,200])
 plt.legend(['source host','destination host'],loc='upper right')
@@ -109,7 +112,7 @@ plt.ylabel("bandwidth consumption(Mbps)")
 #plt.suptitle("bandwidth policy",fontsize=BIGGER_SIZE)
 #plt.suptitle(titleName,fontsize=BIGGER_SIZE)
 #plt.savefig("/home/xu/thesis_file/plot/"+titleName+".png",bbox_inches='tight')
-plt.savefig(titleName+".png",bbox_inches='tight')
+plt.savefig(plot/titleName+".png",bbox_inches='tight')
 plt.show()
 plt.clf()
 plt.xlabel("time(s)")
@@ -117,7 +120,7 @@ plt.ylabel("cumulation throughput(kb)")
 plt.plot(t_cumulation,cumulation,"-b")
 plt.setp(lines,linewidth=3.0)
 #plt.savefig("/home/xu/thesis_file/plot/"+titleName+"_cumulation.png",bbox_inches='tight')
-plt.savefig(titleName+"_cumulation.png",bbox_inches='tight')
+plt.savefig(plot/titleName+"_cumulation.png",bbox_inches='tight')
 f.close()
 plt.show()
 
