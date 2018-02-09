@@ -55,7 +55,7 @@ public class StatisticClient {
     		clearnUP();
         	hostInformationCollector hostinfoCollector=new hostInformationCollector();
           	hostinfoCollector.hostInfoToDatabase();
-          	/*List<host> hosts=selectAllhosts();
+          	List<host> hosts=selectAllhosts();
          	deployServerOnHost(hosts);
         	generateKeyPair(hosts);
          	generatelookupTable(hosts);
@@ -64,7 +64,7 @@ public class StatisticClient {
           	System.out.println("read from the configuration file:"+policy);
         	if(policy.equals("random")){
     /***************************test to collect the result of the bandwidth***********************************/
-          	/*	 (new bandwidthThread(bandwidthQueue)).start();
+          		 (new bandwidthThread(bandwidthQueue)).start();
           		 Thread.sleep(5000);
           	     tester ts=new tester();
           	     (new bandwidthCollectorThread(ts.getAlltheHost(),3000)).start();
@@ -76,7 +76,7 @@ public class StatisticClient {
           	Thread.sleep(5000);
     	    (new checkingThread(MsgQueue,policy)).start();
     	    readMsg();	
-    	    }*/
+    	    }
          	
     	    }catch(Exception e) {
     			// TODO Auto-generated catch block

@@ -66,16 +66,23 @@ public class bandwidthThread extends Thread {
 	        	LinkedList<String> ports=new LinkedList<String>();
 	        	//find the port list which connect to the host
 	        	Statement sst=conn.createStatement();
-	        	ResultSet rs=sst.executeQuery("SELECT source FROM connections WHERE dstType='"+"host'");
+	           /*ResultSet rs=sst.executeQuery("SELECT source FROM connections WHERE dstType='"+"host'");
 	        	LinkedList<String> portConnectHostlist=new LinkedList<String>();
 	        	while(rs.next()){
 	        		portConnectHostlist.add(rs.getString(1));
-	        	}
+	        	}*/
 	        	for(int i=0;i<portlist.length();i++) {
 	        		JSONObject objects=(JSONObject) portlist.get(i); 		
 	        		String portNumber=(String) objects.get("port_number");
 	        		if(!portNumber.equals("local")){
-	        	    String value=objects.getString("name");
+	        	    //String value=objects.getString("name");
+	        	    String mac=objects.getString("hardware_address");
+	        	    String sql="SELECT source FROM connections WHERE switchPortMAC='"+mac+"'";
+	        	    ResultSet rs2=sst.executeQuery(sql);
+	        	    String value=null;
+	        	    if(rs2.next()){
+	        	       value=rs2.getString(1);
+                     }
 	        	   //add port number mapping
 	        		String name=dpid+"_"+portNumber;
 	        		ResultSet rs1=sst.executeQuery("SELECT * FROM mapping WHERE name='"+name+"' AND value='"+value+"'");
@@ -84,7 +91,7 @@ public class bandwidthThread extends Thread {
 	        		"('"+name+"','port','"+value+"')"
 	        	   );
 	        	   }
-	        	   if(portConnectHostlist.contains(value))
+	        	  // if(portConnectHostlist.contains(value))
 	        		ports.add(portNumber);
 	        		
 	        	 }
