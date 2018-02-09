@@ -200,6 +200,8 @@ public class bandwidthThread extends Thread {
     	            	Statement stt=  conn.createStatement();
     				    stt.execute("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
     					    "('"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
+					    System.out.println("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
+							"('"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
     	    	     }
     			 }catch(Exception e) {
    				// TODO Auto-generated catch block

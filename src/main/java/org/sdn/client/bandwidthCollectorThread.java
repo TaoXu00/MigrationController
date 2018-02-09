@@ -59,6 +59,8 @@ public class bandwidthCollectorThread extends Thread {
   	            	Statement stt=  conn.createStatement();
   				    stt.execute("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
   					    "('"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
+  				    System.out.println("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
+								"('"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
   	    	        }
   	    	     }
   			 }catch(Exception e) {
