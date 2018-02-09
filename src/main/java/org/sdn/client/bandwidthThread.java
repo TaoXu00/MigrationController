@@ -109,16 +109,16 @@ public class bandwidthThread extends Thread {
 	public void getBandwidthPerSwitchPerPort() throws JSONException{
 		 try{
 		     Map<String,LinkedList<String>> SwitchPortPairMap=getSwitchPortPair();
-             System.out.println("getSwitchPortPair Size"+SwitchPortPairMap.size());
+            // System.out.println("getSwitchPortPair Size"+SwitchPortPairMap.size());
 		       Statement stt=  conn.createStatement();
 		       String sql="TRUNCATE StatisticsBandwidth";
 		       stt.executeUpdate(sql); 
 		    	for(String dpid:SwitchPortPairMap.keySet()){
 		    		List<String> ports=SwitchPortPairMap.get(dpid);
-		    		System.out.println("******************:"+ports.size());
+		    		//System.out.println("******************:"+ports.size());
 		    		for(String port:ports){ 
 		    			Response res;
-                        System.out.println("dpid:"+dpid +" port"+port);
+                      //  System.out.println("dpid:"+dpid +" port"+port);
 		    	        res=target.path("statistics/bandwidth")
 		    	        		   .path(dpid)
 		    	        		   .path(port)
@@ -127,7 +127,7 @@ public class bandwidthThread extends Thread {
 		    	        		   .get();	       
 		    	        String s=res.readEntity(String.class);
 		    	        JSONArray jsonarray=new JSONArray(s);
-                        System.out.println("++++++++++++++dpid:"+dpid +" port"+port);
+                       // System.out.println("++++++++++++++dpid:"+dpid +" port"+port);
 
 		    	        if(!jsonarray.get(0).equals(null)){
 		    	        JSONObject jobj=(JSONObject) jsonarray.get(0);
@@ -138,8 +138,8 @@ public class bandwidthThread extends Thread {
 		                String time=db.getCurrentTime();
 		                stt.execute("INSERT INTO StatisticsBandwidth VALUES"+
 		    				    "('"+dpid+"','"+port+"','"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")" );
-						System.out.println("INSERT INTO StatisticsBandwidth VALUES"+
-								"('"+dpid+"','"+port+"','"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")");
+						//System.out.println("INSERT INTO StatisticsBandwidth VALUES"+
+						//		"('"+dpid+"','"+port+"','"+time+"',"+bitsPerSecondsRx+","+BitsPerSecondTx+")");
 		                /*ResultSet rs=stt.executeQuery("SELECT * FROM StatisticsBandwidth WHERE switchDPID='"+dpid+ "' AND port='"+port+"'");
 						
 						if(!rs.next())
