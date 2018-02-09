@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import MySQLdb
 import numpy as np
 import os
-import datetime
+
 #import mysql.connector
 
 def timeConvert(indate):
