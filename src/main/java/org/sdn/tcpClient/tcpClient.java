@@ -102,8 +102,10 @@ public class tcpClient {
   		   System.out.println("*************Iperf Client 10.0.0.1"+ "Iperf server:"+ migrationDstHost.getIP()+" started: "+db.getCurrentTime());
   		   Thread.sleep(100000);
   		   policyExecutor p=new policyExecutor();
+  		   System.out.println("************"+migrationSrcHost.getAttachPoint()+"  "+migrationDstHost.getAttachPoint());
   		   String src=p.getswitchDPIDPort(migrationSrcHost.getAttachPoint());
-  		   String dst=p.getswitchDPIDPort(migrationDstHost.getAttachPoint());	   
+  		   String dst=p.getswitchDPIDPort(migrationDstHost.getAttachPoint());
+  		   System.out.println("src table:"+src+"dst table:"+dst);
   		   doPlot(getTable(src),getTable(dst),migrationSrcHost,migrationDstHost,migrationTime);
 		   }
        } catch (Exception e) {
