@@ -144,7 +144,7 @@ public class aggregateThread extends Thread {
 					     " PCDifference INT,"+
 			             " PRIMARY KEY(id))";
 			stmt.executeUpdate(sql);
-			System.out.println("Created table "+table +"in database");
+			//System.out.println("Created table "+table +"in database");
 			
 		 }
 	 }

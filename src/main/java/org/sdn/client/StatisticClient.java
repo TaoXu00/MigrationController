@@ -267,7 +267,7 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
     	for(host h:selectedhosts){
     	String IP=h.getIP();
     	tcpClient client=new tcpClient();
-    	System.out.println("before send start container");
+    	//System.out.println("before send start container");
     	client.sendStartContainer(IP, image, container);
     	}
     	
