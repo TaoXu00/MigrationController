@@ -90,9 +90,10 @@ public class bandwidthThread extends Thread {
 	        		sst.execute("INSERT INTO mapping VALUES"+
 	        		"('"+name+"','port','"+value+"')"
 	        	   );
+	        		ports.add(portNumber);
 	        	   }
 	        	  // if(portConnectHostlist.contains(value))
-	        		ports.add(portNumber);
+
 	        		
 	        	 }
 	        	}
