@@ -74,8 +74,6 @@ public class StatisticClient {
     	    (new aggregateThread(AggregateQueue)).start();
           	(new bandwidthThread(bandwidthQueue)).start();
           	Thread.sleep(5000);
-          	tester ts=new tester();
-          	(new bandwidthCollectorThread(ts.getAlltheHost(),3000)).start();
     	    (new checkingThread(MsgQueue,policy)).start();
     	    readMsg();	
     	    }
