@@ -186,6 +186,7 @@ public class checkingThread extends Thread{
 			rs=stt.executeQuery(sql);
 			if(rs.next()){
 				src=rs.getString(1);
+				System.out.println("+++++++++source host:"+src);
 				for(host h:busyhosts){
 					if(h.getIP().equals(src)){
 					  srchost=h;
