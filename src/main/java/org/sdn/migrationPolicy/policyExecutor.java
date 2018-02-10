@@ -40,7 +40,7 @@ import org.sdn.dataType.hostStatus;
 import org.sdn.tcpClient.tcpClient;
 
 public class policyExecutor {
-	public static final int ONEM=1000000;
+	private static final int ONEM=1000000;
 	private DBFunction db=new DBFunction(); 
 	private tcpClient tclient=new tcpClient();
 	private Connection conn=db.newConnection();
@@ -411,14 +411,14 @@ public class policyExecutor {
 		// TODO Auto-generated method stub
 		String switchName = null;
 		Statement stt=conn.createStatement();
-		String sql="SELECT value FROM mapping WHERE name LIKE'"+sw+"%'";
+		String sql="SELECT value FROM mapping WHERE name LIKE'"+sw+"%' AND value IS NOT NULL";
 		ResultSet rs=stt.executeQuery(sql);
-		while(rs.next()){
+		if(rs.next()){
 			System.out.println("+++++++++++++"+rs.getString(1));
-			if(rs.getString(1)!=null){
+			//if(rs.getString(1)!=null){
 			switchName=rs.getString(1).split("-")[0];
-			break;
-			}
+			//break;
+			//}
 		}
 		return switchName;
 	}
