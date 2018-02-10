@@ -388,13 +388,13 @@ public class policyExecutor {
     	  // System.out.print(" "+node);
        }
        path.add(dstHostname);
-        for(int i=0;i<jsonarray.length();i++){
+       /* for(int i=0;i<jsonarray.length();i++){
               JSONObject object=jsonarray.getJSONObject(i);
         	   String port=object.getString("switch")+"_"+object.getString("port");
         	 //  System.out.println("Path port list:"+port);
         	   String switchName=getswitchName(port);
         	   path.add(switchName);       
-        }
+        }*/
         
 		return path;
 	}
