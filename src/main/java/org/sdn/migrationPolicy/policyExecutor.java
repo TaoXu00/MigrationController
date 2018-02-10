@@ -278,9 +278,9 @@ public class policyExecutor {
 		dstAttachPointPort=h.getAttachPoint();
 		//constract path perform the floodlight API
 		List<String> path=getPath(srcAttachPointPort,dstAttachPointPort,srchost.getName(),h.getName());
-	/*	System.out.println("path list:");
+		System.out.println("path list:");
 		for(String node:path)
-			System.out.println(node+" ");*/
+			System.out.println(node+" ");
 		int bandwidth=getPathbandwidth(path);
 		freeHostsPathbandwidth.put(h,bandwidth);
  	}
@@ -338,7 +338,7 @@ public class policyExecutor {
 			String Node1=path.get(i);
 			String Node2=path.get(i+1);			
 			String l=Node1+"-"+Node2;
-			System.out.println(l);
+			System.out.println(l+"====");
 			if(!linkbandwidth.containsKey(l)){
 				String l1=Node2+"-"+Node1;
 			    bandwidth=linkbandwidth.get(l1);
