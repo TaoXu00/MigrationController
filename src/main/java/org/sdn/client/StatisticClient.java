@@ -298,14 +298,16 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
     	  String sql="SELECT * FROM mapping WHERE type='host'";
     	  ResultSet rs=sst.executeQuery(sql);
           String name=null;
+		   String dst=null;
     	  while(rs.next()){
+    	  	  name=rs.getString("name");
     	      if(System.getProperty("testEnvironment").equals("Geni")) {
-                  name = rs.getString("name")+"-eth1";
+                   dst= rs.getString("name")+"-eth1";
               }else if(System.getProperty("testEnvironment").equals("Mininet")){
-                  name = rs.getString("name")+"-eth0";
+                  dst = rs.getString("name")+"-eth0";
               }
     		  String ip=rs.getString("value");	 
-    		  sql="SELECT source FROM connections WHERE destination='"+name+"'";
+    		  sql="SELECT source FROM connections WHERE destination='"+dst+"'";
     		  Statement sst1=conn.createStatement();
     		  ResultSet rs1=sst1.executeQuery(sql);
     		  if(rs1.next()){

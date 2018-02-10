@@ -414,11 +414,7 @@ public class policyExecutor {
 		String sql="SELECT value FROM mapping WHERE name LIKE '"+sw+"%' AND value !='null'";
 		ResultSet rs=stt.executeQuery(sql);
 		if(rs.next()){
-			System.out.println("+++++++++++++"+rs.getString(1));
-			//if(rs.getString(1)!=null){
 			switchName=rs.getString(1).split("-")[0];
-			//break;
-			//}
 		}
 		return switchName;
 	}
