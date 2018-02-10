@@ -274,7 +274,7 @@ public class policyExecutor {
 		dstAttachPointPort=h.getAttachPoint();
 		//constract path perform the floodlight API
 		List<String> path=getPath(srcAttachPointPort,dstAttachPointPort,srchost.getName(),h.getName());
-		System.out.println("path list:");
+		System.out.println("path list:" +path.size());
 		for(String node:path)
 			System.out.println("node: "+node+" ");
 		int bandwidth=getPathbandwidth(path);
