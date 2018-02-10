@@ -330,14 +330,15 @@ public class policyExecutor {
 		int minBandwidth=Integer.MAX_VALUE;
 		int bandwidth;
 		Map<String,Integer> linkbandwidth=DBFunction.getLinkBandwidth();
-		/*System.out.println("linkbandwidth: "+linkbandwidth.size());
+		System.out.println("linkbandwidth: "+linkbandwidth.size());
 		for(String l:linkbandwidth.keySet())
-			System.out.println("------------"+l+" bandwidth:"+linkbandwidth.get(l));*/
+			System.out.println("------------"+l+" bandwidth:"+linkbandwidth.get(l));
 		
 		for(int i=0;i<path.size()-1;i++){
 			String Node1=path.get(i);
 			String Node2=path.get(i+1);			
 			String l=Node1+"-"+Node2;
+			System.out.println(l);
 			if(!linkbandwidth.containsKey(l)){
 				String l1=Node2+"-"+Node1;
 			    bandwidth=linkbandwidth.get(l1);

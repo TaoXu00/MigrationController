@@ -171,7 +171,7 @@ public class checkingThread extends Thread{
 			break;
 			}
 		}
-		System.out.println("MAX:"+max);
+		//System.out.println("MAX:"+max);
 		sql="SELECT port FROM StatisticsBandwidth WHERE switchDPID='"+selectedswitch+"' AND (bitsPerSecondRx+bitsPerSecondTx)="+max;
 		rs=stt.executeQuery(sql);
 		if(rs.next()){
