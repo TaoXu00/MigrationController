@@ -1,6 +1,6 @@
 package org.sdn.migrationPolicy;
 
-import java.net.URI;
+
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -11,15 +11,12 @@ import java.sql.Statement;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import javax.ws.rs.client.Client;
@@ -27,7 +24,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import javax.xml.bind.DatatypeConverter;
 
 import org.json.JSONArray;
@@ -35,12 +31,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.sdn.DB.DBFunction;
 import org.sdn.client.StatisticClient;
-import org.sdn.client.aggregateThread;
+
 import org.sdn.dataType.KeyPair;
 import org.sdn.dataType.deploymentStatus;
 import org.sdn.dataType.host;
 import org.sdn.dataType.hostStatus;
-import org.sdn.dataType.link;
+
 import org.sdn.tcpClient.tcpClient;
 
 public class policyExecutor {
@@ -419,7 +415,7 @@ public class policyExecutor {
 		ResultSet rs=stt.executeQuery(sql);
 		while(rs.next()){
 			System.out.println("+++++++++++++"+rs.getString(1));
-			if(!rs.getString(1).equals("null")){
+			if(rs.getString(1)!=null){
 			switchName=rs.getString(1).split("-")[0];
 			break;
 			}
