@@ -73,6 +73,7 @@ for j in range(len(sys.argv)-4):
     sql='SELECT * FROM %s' % sys.argv[j+1]
     cursor=excuteSql(sql,conn)
     rowNum=cursor.rowcount
+    print  "++++++++++++++"+rowNum
     rec=cursor.fetchone()
     basetime=timeConvert(rec[1])
     if j == 0:
@@ -101,6 +102,7 @@ plt.rc('legend',fontsize=SMALL_SIZE)
 plt.rc('xtick',labelsize=MEDIUM_SIZE)
 plt.rc('ytick',labelsize=MEDIUM_SIZE)
 #plt.rc('figure',titlesize=BIGGER_SIZE)
+print "size of s:"+len(s)+" size of s1:"+len(s1)
 lines=plt.plot(t,s,'-r',t1,s1,'--b')
 plt.setp(lines,linewidth=2.0)
 plt.axis([min(t),400,min(min(s),min(s1)),max(max(s),max(s1))])
