@@ -208,7 +208,7 @@ public class checkingThread extends Thread{
 		//then find the switches which are busy and also having the the aggregate difference greater than the threshold
 		List<String> HeavyBusySwitchs=new LinkedList<String>();
         int aggregateThreshold=Integer.parseInt(System.getProperty("aggregateThreshould"));
-        int aggregateDifferenceThreshold=Integer.parseInt(System.getProperty("aggregateDifferenceTreshould"));
+        int aggregateDifferenceThreshold=Integer.parseInt(System.getProperty("aggregateDifferenceTreshould").replace(" ",""));
         boolean existHeavyBusySwitch=false;
         sql="SELECT switchDPID FROM StatisticsAggregate WHERE packet_count >"+aggregateThreshold+" AND PCDifference >"+aggregateDifferenceThreshold;
         rs=stt.executeQuery(sql);
