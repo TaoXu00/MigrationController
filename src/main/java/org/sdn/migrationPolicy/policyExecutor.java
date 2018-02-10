@@ -411,7 +411,7 @@ public class policyExecutor {
 		// TODO Auto-generated method stub
 		String switchName = null;
 		Statement stt=conn.createStatement();
-		String sql="SELECT value FROM mapping WHERE name LIKE'"+sw+"%' AND value IS NOT NULL";
+		String sql="SELECT value FROM mapping WHERE name LIKE '"+sw+"%' AND value IS NOT NULL";
 		ResultSet rs=stt.executeQuery(sql);
 		if(rs.next()){
 			System.out.println("+++++++++++++"+rs.getString(1));
