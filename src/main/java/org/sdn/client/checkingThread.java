@@ -204,13 +204,14 @@ public class checkingThread extends Thread{
 		String sql;
 		ResultSet rs;
 		for(host h:busyhosts){
+		    System.out.println("busy host:"+h.getIP());
 			String attachpoint=h.getAttachPoint();
 			sql="SELECT name FROM mapping WHERE value= '"+attachpoint+"'";
 			rs=stt.executeQuery(sql);
 			while(rs.next()){
 				String[] parts=rs.getString(1).split("_");
 				busyswitches.add(parts[0]);
-				// System.out.println("busyswitches the switch ID is "+switchs.get(ip));
+				System.out.println("busyswitches the switch ID is "+parts[0]);
 			}
 
 
