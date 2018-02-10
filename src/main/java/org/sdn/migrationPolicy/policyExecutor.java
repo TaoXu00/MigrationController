@@ -330,9 +330,9 @@ public class policyExecutor {
 		int minBandwidth=Integer.MAX_VALUE;
 		int bandwidth;
 		Map<String,Integer> linkbandwidth=DBFunction.getLinkBandwidth();
-		System.out.println("linkbandwidth: "+linkbandwidth.size());
+		/*System.out.println("linkbandwidth: "+linkbandwidth.size());
 		for(String l:linkbandwidth.keySet())
-			System.out.println("------------"+l+" bandwidth:"+linkbandwidth.get(l));
+			System.out.println("------------"+l+" bandwidth:"+linkbandwidth.get(l));*/
 		
 		for(int i=0;i<path.size()-1;i++){
 			String Node1=path.get(i);
@@ -418,6 +418,7 @@ public class policyExecutor {
 		String sql="SELECT value FROM mapping WHERE name LIKE'"+sw+"%'";
 		ResultSet rs=stt.executeQuery(sql);
 		while(rs.next()){
+			System.out.println("+++++++++++++"+rs.getString(1));
 			if(!rs.getString(1).equals(null)){
 			switchName=rs.getString(1).split("-")[0];
 			break;
