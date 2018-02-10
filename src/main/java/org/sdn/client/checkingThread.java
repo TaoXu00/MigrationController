@@ -186,9 +186,9 @@ public class checkingThread extends Thread{
 	private String selectMigrationSrcHost() throws Exception{
 		// TODO Auto-generated method stub
 		Set<host> busyhosts=DBFunction.getDeploymentStatus().getBusyHosts().keySet();
-		HashMap<String, String> switchs=new HashMap<String,String>();
 		List<String> busyswitches=new LinkedList<String>();   //the collection of the busy switch
 		String selectedSwitch=null;
+		/*HashMap<String, String> switchs=new HashMap<String,String>();
 		//find the connected switch
 		 Statement stt=conn.createStatement();
 		 String sql="SELECT t1.destIP,t2.name FROM connections AS t1,mapping as t2 WHERE t1.source=t2.value";
@@ -199,10 +199,23 @@ public class checkingThread extends Thread{
 		 }
 		
 		 for(host h:busyhosts){
-		 String ip=h.getIP();
-		 busyswitches.add(switchs.get(ip));
-		// System.out.println("busyswitches the switch ID is "+switchs.get(ip));
-		}
+		 String ip=h.getIP();*/
+		Statement stt=conn.createStatement();
+		String sql;
+		ResultSet rs;
+		for(host h:busyhosts){
+			String attachpoint=h.getAttachPoint();
+			sql="SELECT name FROM mapping WHERE value= '"+attachpoint+"'";
+			rs=stt.executeQuery(sql);
+			while(rs.next()){
+				String[] parts=rs.getString(1).split("_");
+				busyswitches.add(parts[0]);
+				// System.out.println("busyswitches the switch ID is "+switchs.get(ip));
+			}
+
+
+		  }
+
 		/* for(String s:busyswitches)
 		 System.out.println("busySwitches:"+s);*/
 		//then find the switches which are busy and also having the the aggregate difference greater than the threshold
