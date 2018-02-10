@@ -86,7 +86,7 @@ public class bandwidthThread extends Thread {
 	        	   //add port number mapping
 	        		String name=dpid+"_"+portNumber;
 	        		ResultSet rs1=sst.executeQuery("SELECT * FROM mapping WHERE name='"+name+"' AND value='"+value+"'");
-	        		if(!rs1.next()){
+	        		if(!rs1.next()&&value!=null){
 	        		sst.execute("INSERT INTO mapping VALUES"+
 	        		"('"+name+"','port','"+value+"')"
 	        	   );
