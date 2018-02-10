@@ -157,11 +157,19 @@ public class checkingThread extends Thread{
 		String src = null;
 		Set<host> busyhosts=db.getDeploymentStatus().getBusyHosts().keySet();
 		Statement stt=conn.createStatement();
-		String sql="SELECT switchDPID,port,max(bitsPerSecondRx+bitsPerSecondTx) FROM StatisticsBandwidth WHERE switchDPID='"+selectedswitch+"'";
+		//String sql="SELECT switchDPID,port,max(bitsPerSecondRx+bitsPerSecondTx) FROM StatisticsBandwidth WHERE switchDPID='"+selectedswitch+"'";
+		String sql="SELECT switchDPID,port,max(bitsPerSecondRx+bitsPerSecondTx) FROM StatisticsBandwidth GROUP BY switchDPID";
 		ResultSet rs=stt.executeQuery(sql);
 		host srchost = null;
-		if(rs.next()){
-			String port=rs.getString(1)+"_"+rs.getString(2);
+		String port=null;
+		while(rs.next()){
+			String switchDPID=rs.getString(1);
+			String Swport=rs.getString(2);
+			if(switchDPID.equals(selectedswitch)){
+			port=rs.getString(1)+"_"+rs.getString(2);
+			break;
+			}
+		}
 		//	System.out.println("++++select busy port: "+port);
 			sql="SELECT value FROM mapping WHERE name='"+port+"'";
 			rs=stt.executeQuery(sql);
@@ -179,7 +187,7 @@ public class checkingThread extends Thread{
 				}	
 			  }		
 			}
-		}
+
 		stt.close();
 		return srchost;
 	}
