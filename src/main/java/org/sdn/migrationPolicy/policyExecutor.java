@@ -419,7 +419,7 @@ public class policyExecutor {
 		ResultSet rs=stt.executeQuery(sql);
 		while(rs.next()){
 			System.out.println("+++++++++++++"+rs.getString(1));
-			if(!rs.getString(1).equals(null)){
+			if(!rs.getString(1).equals("null")){
 			switchName=rs.getString(1).split("-")[0];
 			break;
 			}
