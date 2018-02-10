@@ -177,11 +177,12 @@ public class checkingThread extends Thread{
 		if(rs.next()){
 			port=selectedswitch+"_"+rs.getString(1);
 		}
-		//	System.out.println("++++select busy port: "+port);
+			System.out.println("++++select busy port: "+port);
 			sql="SELECT value FROM mapping WHERE name='"+port+"'";
 			rs=stt.executeQuery(sql);
 			if(rs.next()){
 			String value=rs.getString(1);
+			System.out.println("++++++++++value:"+value);
 			sql="SELECT destIP FROM connections WHERE source='"+value+"'";
 			rs=stt.executeQuery(sql);
 			if(rs.next()){
@@ -190,6 +191,7 @@ public class checkingThread extends Thread{
 				for(host h:busyhosts){
 					if(h.getIP().equals(src)){
 					  srchost=h;
+						System.out.println("+++++++++source host:"+src);
 					  break;
 				    }
 				}	
