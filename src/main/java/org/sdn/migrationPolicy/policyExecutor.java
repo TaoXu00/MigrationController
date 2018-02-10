@@ -417,8 +417,12 @@ public class policyExecutor {
 		Statement stt=conn.createStatement();
 		String sql="SELECT value FROM mapping WHERE name LIKE'"+sw+"%'";
 		ResultSet rs=stt.executeQuery(sql);
-		if(rs.next())
-			switchName=rs.getString(1).split("-")[0];				
+		while(rs.next()){
+			if(!rs.getString(1).equals(null)){
+			switchName=rs.getString(1).split("-")[0];
+			break;
+			}
+		}
 		return switchName;
 	}
 	public String findAttachPoint(host srchost) throws SQLException {
