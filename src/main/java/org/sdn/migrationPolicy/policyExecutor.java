@@ -276,7 +276,7 @@ public class policyExecutor {
 		List<String> path=getPath(srcAttachPointPort,dstAttachPointPort,srchost.getName(),h.getName());
 		System.out.println("path list:");
 		for(String node:path)
-			System.out.println(node+" ");
+			System.out.println("node: "+node+" ");
 		int bandwidth=getPathbandwidth(path);
 		freeHostsPathbandwidth.put(h,bandwidth);
  	}
@@ -351,17 +351,17 @@ public class policyExecutor {
 		//TO  DO
 		List<String> path=new LinkedList<String>();
 		List<String> switchlist=new LinkedList<String>();
-		System.out.println("**************"+srcAttachPointPort+" "+dstAttachPointPort);
+		/*System.out.println("**************"+srcAttachPointPort+" "+dstAttachPointPort);
 		System.out.println("***************"+getswitchDPIDPort(srcAttachPointPort));
 		System.out.println( srcAttachPointPort+" "+dstAttachPointPort);
-		System.out.println( getswitchDPIDPort(srcAttachPointPort)+" "+getswitchDPIDPort(dstAttachPointPort));
+		System.out.println( getswitchDPIDPort(srcAttachPointPort)+" "+getswitchDPIDPort(dstAttachPointPort));*/
 		String[] parts1=getswitchDPIDPort(srcAttachPointPort).split("_");
 		String[] parts2=getswitchDPIDPort(dstAttachPointPort).split("_");
 		String srcdpid=parts1[0];
 		String srcport=parts1[1];
 		String dstdpid=parts2[0];
 		String dstport=parts2[1];
-		System.out.println("++++++"+srcdpid+" "+srcport+" "+dstdpid+" "+dstport);
+		//System.out.println("++++++"+srcdpid+" "+srcport+" "+dstdpid+" "+dstport);
 		Response res;
         res=target.path("routing/path")
         		   .path(srcdpid)
@@ -382,16 +382,16 @@ public class policyExecutor {
        }
        path.add(srcHostname);
        for(String sw:switchlist){
-    	   System.out.println(sw);
+    	  // System.out.println(sw);
     	   String node=getswitchName(sw);
     	   path.add(node);
-    	   System.out.print(" "+node);
+    	  // System.out.print(" "+node);
        }
        path.add(dstHostname);
         for(int i=0;i<jsonarray.length();i++){
               JSONObject object=jsonarray.getJSONObject(i);
         	   String port=object.getString("switch")+"_"+object.getString("port");
-        	   System.out.println("Path port list:"+port);
+        	 //  System.out.println("Path port list:"+port);
         	   String switchName=getswitchName(port);
         	   path.add(switchName);       
         }
