@@ -24,6 +24,8 @@ def dataXY(record,basetime,t,s):
     relativetime=timeConvert(indate)-basetime
    # print ("relativetime %d",relativetime)
     t.append(relativetime)
+    if record[2]==0:
+        record[3]=0
     s.append((record[2]+record[3])/(oneM*1.0))
 def excuteSql(sql,conn):
     #print sql
