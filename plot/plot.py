@@ -41,7 +41,7 @@ def cumulation_func(record,basetime,t_cumulation,cumulation,accum):
     t_cumulation.append(relativetime)
     if record[2]==0:
         rs=0
-    else
+    else:
         rs=record[3]
     acc=((record[2]+rs)/kb)*3+accum
     cumulation.append(acc)	   #unit is bits
@@ -118,7 +118,7 @@ print len(s1)
 lines=plt.plot(t,s,'-r',t1,s1,'--b')
 plt.setp(lines,linewidth=2.0)
 plt.axis([min(t),250,min(min(s),min(s1)),max(max(s),max(s1))])
-#plt.xticks(np.arange(min(t),250,50.0))
+#plt.xticks(np.arange(mcain(t),250,50.0))
 plt.xticks([10,50,100,150,200,250])
 plt.legend(['source host','destination host'],loc='upper right')
 plt.xlabel("time(s)")
