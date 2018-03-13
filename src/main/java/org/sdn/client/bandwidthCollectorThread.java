@@ -55,6 +55,7 @@ public class bandwidthCollectorThread extends Thread {
   	    	        long BitsPerSecondTx=jobj.getLong("bits-per-second-tx");
   	                String time=db.getCurrentTime();
   	            	String table=prefix+dpid.replace(":","")+"P"+portNum;
+  	            	System.out.println("=======new table name "+table);
   	            	checkIfTableExist(table);
   	            	Statement stt=  conn.createStatement();
   				    stt.execute("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
@@ -85,7 +86,9 @@ public class bandwidthCollectorThread extends Thread {
 	public void checkIfTableExist(String table) throws Exception{
 		 DatabaseMetaData meta=(DatabaseMetaData) conn.getMetaData();
 		 ResultSet res=meta.getTables(null,null,table,new String[]{"TABLE"});
+
 		 if(!res.next()){ //create a new table
+			 System.out.println("=======new table name "+table);
 			 Statement stmt=conn.createStatement();
 			 String sql="CREATE TABLE "+table+
 					     " (id INT not NULL auto_increment,"+
