@@ -75,6 +75,7 @@ public class bandwidthCollectorThread extends Thread {
 			while(true){
 				 getBandwidthPerSwitchPerPortCustomrizationMode();
 				// System.out.println(frequency);
+				 System.out.println("Bandwidth collecter++++++++++++++++");
 				 Thread.sleep(frequency);			
 			  }
 			 				
