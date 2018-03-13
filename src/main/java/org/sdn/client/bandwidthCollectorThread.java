@@ -34,7 +34,8 @@ public class bandwidthCollectorThread extends Thread {
     }
 	public void getBandwidthPerSwitchPerPortCustomrizationMode(){
   	  try{
-  	    	for(bandwidth port:portlist){ 
+  	    	for(bandwidth port:portlist){
+  	    		   System.out.println("in port list+++");
   	    			String dpid=port.getDpid();
   	    			String portNum=port.getPort();
   	    			Response res;
