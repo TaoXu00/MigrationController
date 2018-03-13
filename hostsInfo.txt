@@ -7,7 +7,7 @@ s2-eth3<->s5-eth1
 s2-eth1#02:c9:4d:f9:f0:7f<->h2-eth1
 s3-eth1#02:19:95:bf:c9:c1<->h3-eth1
 s4-eth2#02:29:7d:10:7c:dc<->h4-eth1
-s5-eth2#02:f5:f0:92:f4:f5<->h5-eth1
+s5-eth2# 02:f5:f0:92:f4:f5<->h5-eth1
 IP
 h1 10.0.0.1
 h2 10.0.0.2
