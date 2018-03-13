@@ -27,7 +27,7 @@ public  bandwidth[] getAlltheHost() throws Exception{
 	    String attachpoint=h.getAttachPoint();
 	    conn=db.newConnection();
 	    Statement stt=conn.createStatement();
-	    System.out.println("++++++++++host "+h.getIP()+" "+h.getAttachPoint());
+	    //System.out.println("++++++++++host "+h.getIP()+" "+h.getAttachPoint());
 	    String sql="SELECT name FROM mapping WHERE value='"+attachpoint+"'";
 	    ResultSet rs=stt.executeQuery(sql);
 	    if(rs.next()){

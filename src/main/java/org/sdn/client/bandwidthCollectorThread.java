@@ -35,7 +35,7 @@ public class bandwidthCollectorThread extends Thread {
 	public void getBandwidthPerSwitchPerPortCustomrizationMode(){
   	  try{
   	    	for(bandwidth port:portlist){
-  	    		   System.out.println("in port list+++");
+  	    		 //  System.out.println("in port list+++");
   	    			String dpid=port.getDpid();
   	    			String portNum=port.getPort();
   	    			Response res;
@@ -56,7 +56,7 @@ public class bandwidthCollectorThread extends Thread {
   	    	        long BitsPerSecondTx=jobj.getLong("bits-per-second-tx");
   	                String time=db.getCurrentTime();
   	            	String table=prefix+dpid.replace(":","")+"P"+portNum;
-  	            	System.out.println("=======new table name "+table);
+  	            	//System.out.println("=======new table name "+table);
   	            	checkIfTableExist(table);
   	            	Statement stt=  conn.createStatement();
   				    stt.execute("INSERT INTO "+table+"(Time,bitsPerSecondRX,bitsPerSecondTx) VALUES"+
@@ -76,7 +76,7 @@ public class bandwidthCollectorThread extends Thread {
 			while(true){
 				 getBandwidthPerSwitchPerPortCustomrizationMode();
 				// System.out.println(frequency);
-				 System.out.println("Bandwidth collecter++++++++++++++++");
+				// System.out.println("Bandwidth collecter++++++++++++++++");
 				 Thread.sleep(frequency);			
 			  }
 			 				
@@ -90,7 +90,7 @@ public class bandwidthCollectorThread extends Thread {
 		 ResultSet res=meta.getTables(null,null,table,new String[]{"TABLE"});
 
 		 if(!res.next()){ //create a new table
-			 System.out.println("=======new table name "+table);
+			 //System.out.println("=======new table name "+table);
 			 Statement stmt=conn.createStatement();
 			 String sql="CREATE TABLE "+table+
 					     " (id INT not NULL auto_increment,"+
