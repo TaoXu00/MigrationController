@@ -202,7 +202,7 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
     	System.out.println("cleaning database....");
 		Connection conn=db.newConnection();
 		Statement stt=conn.createStatement();
-		String sql="DROP TABLE IF EXISTS temp_bandwidth_00000e232f24684fP2,temp_bandwidth_000026ce4336a642P1,temp_bandwidth_00002a11a30f3d42P1,temp_bandwidth_000042618f920e42P2,temp_bandwidth_0000f2e545cfe249P3";
+		String sql="DROP TABLE IF EXISTS temp_bandwidth_00000e232f24684fP2,temp_bandwidth_000026ce4336a642P1,temp_bandwidth_00002a11a30f3d42P1,temp_bandwidth_000042618f920e42P2,temp_bandwidth_00005a61c2b2af43P2";
 		stt.executeUpdate(sql);
 		sql="TRUNCATE TABLE connections";
 		stt.executeUpdate(sql);
