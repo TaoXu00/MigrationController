@@ -58,6 +58,7 @@ public class checkingThread extends Thread{
 		    String selectedswitch=null;
 		    host srchost=null;
 			selectedswitch = selectMigrationSrcHost();
+			selectedswitch="00:00:2a:11:a3:0f:3d:42";
 		    if(selectedswitch!=null){
 		   // System.out.println("selected switch "+selectedswitch);
 		    srchost= selectSrcHost(selectedswitch);
@@ -285,6 +286,7 @@ public class checkingThread extends Thread{
         	produceAggregareResetMsg();
         }
         stt.close();
-        return selectedSwitch;   	
+        return selectedSwitch;
+	    //
 	}
 }

@@ -288,7 +288,8 @@ private LinkedList<Integer> generateRandomNumbers(int size) {
         }
         
         for(Integer i:intlist)
-         Selectedhosts.add(hosts.get(i));      
+         Selectedhosts.add(hosts.get(i));
+
     	return 	Selectedhosts;
     	} 
     public List<host> selectAllhosts() throws SQLException{
