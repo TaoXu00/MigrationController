@@ -5,7 +5,7 @@ s1-eth4<->s2-eth2
 s1-eth5<->s4-eth2
 s2-eth3<->s5-eth1
 s2-eth1#02:06:75:dc:7c:b3<->h2-eth1
-s3-eth2# 02:2c:68:8c:54:8a<->h3-eth1
+s3-eth2#02:2c:68:8c:54:8a<->h3-eth1
 s4-eth1#02:a5:44:16:05:c9<->h4-eth1
 s5-eth2#02:b4:22:89:c5:1e<->h5-eth1
 IP
