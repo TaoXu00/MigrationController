@@ -1,13 +1,13 @@
 connections
-s1-eth2#02:5a:31:eb:98:57<->h1-eth1
-s1-eth4<->s3-eth1
-s1-eth3<->s2-eth1
-s1-eth5<->s4-eth1
+s1-eth3#02:a7:b5:64:89:58<->h1-eth1
+s1-eth1<->s3-eth1
+s1-eth4<->s2-eth2
+s1-eth5<->s4-eth2
 s2-eth3<->s5-eth1
-s2-eth1#02:c9:4d:f9:f0:7f<->h2-eth1
-s3-eth1#02:19:95:bf:c9:c1<->h3-eth1
-s4-eth2#02:29:7d:10:7c:dc<->h4-eth1
-s5-eth2#02:f5:f0:92:f4:f5<->h5-eth1
+s2-eth1#02:06:75:dc:7c:b3<->h2-eth1
+s3-eth2# 02:2c:68:8c:54:8a<->h3-eth1
+s4-eth1#02:a5:44:16:05:c9<->h4-eth1
+s5-eth2#02:b4:22:89:c5:1e<->h5-eth1
 IP
 h1 10.0.0.1
 h2 10.0.0.2
@@ -15,12 +15,12 @@ h3 10.0.0.3
 h4 10.0.0.4
 h5 10.0.0.5
 link bandwidth
-s1<->h1:10
-s2<->h2:10
-s3<->h3:10
+s1<->h1:5
+s2<->h2:5
+s3<->h3:5
 s4<->h4:5
-s5<->h5:2
-s1<->s3:10
+s5<->h5:5
+s1<->s3:5
 s1<->s4:5
-s1<->s2:10
-s2<->s5:2
+s1<->s2:5
+s2<->s5:5
