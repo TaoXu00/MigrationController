@@ -10,6 +10,6 @@ The format is as following:
 if the link is between switches, then "swtichName1-portName1<->switchName2-portName2"  
 if the link is between switch and host, then "swtichName1-portName1:macAddress<->hostName-portName"  
 2. IP (this is the IP of all the hosts)  
-hostName hostIP  
+hostName hostIP 
 3.link bandwidth(this is the information of the bandwidth set when deploy the GENI)  
 switchName<->hostName:bandwith Or switchName<->switchName:bandwidth (the unit of bandwidth is Mbps)
