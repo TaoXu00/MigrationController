@@ -13,7 +13,7 @@ if the link is between switch and host, then "swtichName1-portName1:macAddress<-
 hostName hostIP  
 3.link bandwidth(this is the information of the bandwidth set when deploy the GENI)  
 switchName<->hostName:bandwith Or switchName<->switchName:bandwidth (the unit of bandwidth is Mbps)
-# Mininet and GENI topology script
+# MININET and GENI topology script
 In the folder src/main/resource, there is the topology_geni.repc can be depolyed in Geni, and topology_mininet.py can be depolyed in Mininet.
 # Run
 ./startup.sh
