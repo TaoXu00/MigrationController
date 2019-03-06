@@ -13,3 +13,5 @@ if the link is between switch and host, then "swtichName1-portName1:macAddress<-
 hostName hostIP  
 3.link bandwidth(this is the information of the bandwidth set when deploy the GENI)  
 switchName<->hostName:bandwith Or switchName<->switchName:bandwidth (the unit of bandwidth is Mbps)
+# Run
+./startup.sh
